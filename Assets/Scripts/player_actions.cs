@@ -12,6 +12,9 @@ public class player_actions : MonoBehaviour
     public Transform playerAttack;
     public float attackRange = 0.5f;
 
+    public float attackDelay = 0.5f;
+    float attackTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +41,13 @@ public class player_actions : MonoBehaviour
         }
 
         //Setting up attack functionality
-        if (Input.GetKey(KeyCode.F))
+        if(Time.time >= attackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Attack();
+                attackTime = Time.time + 1f / attackDelay;
+            }
         }
     }
 
@@ -60,8 +67,5 @@ public class player_actions : MonoBehaviour
                 Destroy(enemy);
             }
         }
-        
-
-
     }
 }
