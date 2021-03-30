@@ -41,7 +41,7 @@ public class breakableWall : MonoBehaviour
         }
     }
 
-    private void ExplodeObject() {
+    public void ExplodeObject() {
         GameObject destructable = (GameObject)Instantiate(destructableRef);
 
         destructable.transform.position = transform.position;
