@@ -6,6 +6,7 @@ public class player_actions : MonoBehaviour
 {
     public float fMult = 0.7f;
     public float maxVelocity = 10f;
+    public float jumpPower = 10f;
 
     public bool onGround = false;
 
@@ -33,7 +34,7 @@ public class player_actions : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rb.velocity.y) < 0.001f)
             {
-                rb.AddForce(new Vector2(0f, 7f), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(0f, jumpPower), ForceMode2D.Impulse);
             }
             if (Input.GetKey(KeyCode.A) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
@@ -45,6 +46,8 @@ public class player_actions : MonoBehaviour
                 playerAttack.localPosition = new Vector3(1, 0, 0);
                 rb.AddForce(fMult * Vector3.right);
             }
+            
+            
         }
 
         //Setting up attack functionality
