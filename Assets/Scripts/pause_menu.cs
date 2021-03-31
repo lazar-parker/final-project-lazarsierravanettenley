@@ -34,6 +34,7 @@ public class pause_menu : MonoBehaviour
 
     public void hidePaused()
     {
+        Time.timeScale = 1;
         foreach(GameObject o in pauseMenu)
         {
             o.SetActive(false);
@@ -50,8 +51,8 @@ public class pause_menu : MonoBehaviour
 
     public void Reload()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        //Scene scene = SceneManager.GetActiveScene();S
+        SceneManager.LoadScene("Level_Test");
     }
 
     //Used for the resume button, same logic as within Update

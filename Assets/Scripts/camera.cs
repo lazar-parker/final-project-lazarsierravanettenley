@@ -10,6 +10,9 @@ public class camera : MonoBehaviour
 
     void LateUpdate ()
     {
-        transform.position = target.position + offset;
+        if(target != null)
+        {
+            transform.position = target.position + offset;
+        }
     }
 }

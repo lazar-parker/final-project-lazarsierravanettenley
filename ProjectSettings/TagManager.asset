@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BreakableWall
   - PauseElement
+  - Enemy
+  - DeathElement
+  - ScriptHandler
   layers:
   - Default
   - TransparentFX

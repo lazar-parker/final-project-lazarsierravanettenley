@@ -5,7 +5,7 @@ using UnityEngine;
 public class player_actions : MonoBehaviour
 {
     public float fMult = 0.7f;
-    public float maxVelocity = 0.5f;
+    public float maxVelocity = 10f;
 
     public bool onGround = false;
 
@@ -27,7 +27,7 @@ public class player_actions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 
         if(Time.timeScale == 1)
         {
