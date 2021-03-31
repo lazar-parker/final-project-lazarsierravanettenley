@@ -30,10 +30,6 @@ public class death_menu : MonoBehaviour
 
     public void ShowDeath()
     {
-        if (deathMenu.Length > 0)
-        {
-            Debug.Log("deathMenu has something in it!");
-        }
         foreach (GameObject o in deathMenu)
         {
             o.SetActive(true);
@@ -44,16 +40,12 @@ public class death_menu : MonoBehaviour
     {
         foreach (GameObject o in deathMenu)
         {
-            Debug.Log("Object hidden");
             o.SetActive(false);
         }
-
-        Debug.Log("deathMenu has " + deathMenu.Length + " objects");
     }
 
     public void OnDeathReload()
     {
-        //Scene scene = SceneManager.GetActiveScene();S
         SceneManager.LoadScene("Level_Test");
     }
 }
