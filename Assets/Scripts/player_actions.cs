@@ -5,6 +5,9 @@ using UnityEngine;
 public class player_actions : MonoBehaviour
 {
     public float fMult = 0.7f;
+    public float maxVelocity = 0.5f;
+
+    public bool onGround = false;
 
     //use following for attack animation
     //public Animator anim;
@@ -28,12 +31,16 @@ public class player_actions : MonoBehaviour
 
         if(Time.timeScale == 1)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rb.velocity.y) < 0.001f)
+            {
+                rb.AddForce(new Vector2(0f, 7f), ForceMode2D.Impulse);
+            }
+            if (Input.GetKey(KeyCode.A) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
                 playerAttack.localPosition = new Vector3(-1, 0, 0);
                 rb.AddForce(fMult * Vector3.left);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
                 playerAttack.localPosition = new Vector3(1, 0, 0);
                 rb.AddForce(fMult * Vector3.right);
