@@ -5,11 +5,15 @@ using UnityEngine;
 public class player_actions : MonoBehaviour
 {
     public float fMult = 0.7f;
+
     //use following for attack animation
-    //public Animator animator;
+    //public Animator anim;
 
     public Transform playerAttack;
     public float attackRange = 0.5f;
+
+    public float attackDelay = 0.5f;
+    float attackTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,22 +26,28 @@ public class player_actions : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        if (Input.GetKey(KeyCode.A))
+        if(Time.timeScale == 1)
         {
-            playerAttack.localPosition = new Vector3(-1, 0, 0);
-            rb.AddForce(fMult * Vector3.left);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            playerAttack.localPosition = new Vector3(1, 0, 0);
-            rb.AddForce(fMult * Vector3.right);
-
+            if (Input.GetKey(KeyCode.A))
+            {
+                playerAttack.localPosition = new Vector3(-1, 0, 0);
+                rb.AddForce(fMult * Vector3.left);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                playerAttack.localPosition = new Vector3(1, 0, 0);
+                rb.AddForce(fMult * Vector3.right);
+            }
         }
 
         //Setting up attack functionality
-        if (Input.GetKey(KeyCode.F))
+        if(Time.time >= attackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Attack();
+                attackTime = Time.time + 1f / attackDelay;
+            }
         }
     }
 
@@ -45,21 +55,17 @@ public class player_actions : MonoBehaviour
     {
         //Setting the animator trigger here will allow us to add
         //  attack animations (once we get to that point)
-        //animator.SetTrigger("Attack");
+        //anim.SetTrigger("Attack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(playerAttack.position, attackRange);
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
             if(enemy.CompareTag("BreakableWall"))
             {
                 enemy.transform.position = new Vector3(0, -100, 0);
                 Destroy(enemy);
             }
         }
-        
-
-
     }
 }
