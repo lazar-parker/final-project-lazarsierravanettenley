@@ -11,18 +11,10 @@ public class enemy_actions : MonoBehaviour
     public float speed; // can change depending on level
                         // ie - sloth, characters go faster? to make the player seem slower?
 
-    GameObject[] deathMenu;
-
     // public GameObject other;
     public Transform groundDetection;
 
     private bool movingRight = true;
-
-    void Start()
-    {
-        deathMenu = GameObject.FindGameObjectsWithTag("DeathElement");
-        HideDeath();
-    }
 
 
     void Update()
@@ -55,34 +47,6 @@ public class enemy_actions : MonoBehaviour
             // Debug.Log("Player destroyed");
             Destroy(col.gameObject);
             Time.timeScale = 0;
-            Debug.Log("we got here, at least!");
-            ShowDeath();
-            Debug.Log("Player died");
         }
-    }
-
-    //Had to add the ShowDeath and HideDeath functions here, as Unity was having a hard time
-    //  finding the scriptHandler, for some reason.
-    public void ShowDeath()
-    {
-        if(deathMenu.Length > 0)
-        {
-            Debug.Log("deathMenu has something in it!");
-        }
-        foreach (GameObject o in deathMenu)
-        {
-            o.SetActive(true);
-        }
-    }
-
-    public void HideDeath()
-    {
-        foreach (GameObject o in deathMenu)
-        {
-            Debug.Log("Object hidden");
-            o.SetActive(false);
-        }
-
-        Debug.Log("deathMenu has " + deathMenu.Length + " objects");
     }
 }
