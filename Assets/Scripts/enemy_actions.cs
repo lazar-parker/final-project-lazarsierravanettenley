@@ -7,15 +7,23 @@ public class enemy_actions : MonoBehaviour
     // followed a tutorial (blackthornprod) online for this, but it's just a 
     // placeholder so we had something playable
 
-    public int playerDamage; // damage to player
+    public float damage = 1f; // damage to player
+    public float knockback = 0f; 
     public float speed; // can change depending on level
                         // ie - sloth, characters go faster? to make the player seem slower?
 
     // public GameObject other;
     public Transform groundDetection;
 
+    public GameObject player;
+
     private bool movingRight = true;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
     void Update()
     {
@@ -38,15 +46,15 @@ public class enemy_actions : MonoBehaviour
         }
     }
 
-    // destroys player when it hits it
+    //damages and knockbacks player
     // needs rigidbody 2D and boxcollider 2D, make sure isTriggered is NOT selected
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
         {
             // Debug.Log("Player destroyed");
-            Destroy(col.gameObject);
-            Time.timeScale = 0;
+            player.GetComponent<player_actions>().getDamaged(damage);
+            player.GetComponent<player_actions>().getKnockedBacked(knockback, transform);
         }
     }
 }
