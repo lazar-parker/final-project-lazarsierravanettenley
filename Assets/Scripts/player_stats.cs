@@ -48,4 +48,11 @@ public class player_stats : MonoBehaviour
 
         hb.SetHealth(curHealth);
     }
+
+    //Used for setting the health on load, so that the health bar displays properly
+    public void SetHealth(int health)
+    {
+        curHealth = health;
+        hb.SetHealth(curHealth);
+    }
 }
