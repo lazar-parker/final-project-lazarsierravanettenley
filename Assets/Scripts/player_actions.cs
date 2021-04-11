@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class player_actions : MonoBehaviour
 {
+    public float health = 1f;
+
     public float fMult = 0.7f;
     public float maxVelocity = 10f;
     public float jumpPower = 10f;
@@ -77,5 +79,23 @@ public class player_actions : MonoBehaviour
                 Destroy(enemy);
             }
         }
+    }
+
+    public void getDamaged(float damage) {
+        health -= damage;
+        if (health <= 0) {
+            death();
+        }
+    }
+
+    public void getKnockedBacked(float knockBack, Transform enemy) {
+        knockBack = knockBack * 100;
+        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+        Vector3 moveDirection = rb.transform.position - enemy.transform.position;
+        rb.AddForce(moveDirection.normalized * knockBack);
+    }
+
+    void death() {
+        print("player is dead");
     }
 }
