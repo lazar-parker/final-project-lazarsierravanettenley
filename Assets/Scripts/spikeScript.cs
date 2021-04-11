@@ -5,7 +5,7 @@ using UnityEngine;
 public class spikeScript : MonoBehaviour
 {
 
-    public float damage  = 1f;
+    public int damage  = 1;
 
     private player_stats ps;
 
@@ -27,7 +27,7 @@ public class spikeScript : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            ps.DamagePlayer(playerDamage);
+            ps.DamagePlayer(damage);
         }
     }
 }
