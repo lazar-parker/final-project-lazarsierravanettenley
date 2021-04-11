@@ -87,6 +87,7 @@ public class player_actions : MonoBehaviour
     }
 
     public void getKnockedBacked(float knockBack, Transform enemy) {
+        //print("entered");
         knockBack = knockBack * 100;
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         Vector3 moveDirection = rb.transform.position - enemy.transform.position;
