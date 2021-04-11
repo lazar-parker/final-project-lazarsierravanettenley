@@ -398,6 +398,11 @@ PrefabInstance:
       propertyPath: health
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8093530785461275511, guid: 12086c536dee389449a34a9e5ce4b350,
+        type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8093530785461275512, guid: 12086c536dee389449a34a9e5ce4b350,
         type: 3}
       propertyPath: m_RootOrder
