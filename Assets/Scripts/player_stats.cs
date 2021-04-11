@@ -10,12 +10,14 @@ public class player_stats : MonoBehaviour
     public HealthBar hb;
 
     private GameObject player;
+    private player_inventory pi;
 
     // Start is called before the first frame update
     void Start()
     {
         curHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
+        pi = new player_inventory();
     }
 
     // Update is called once per frame
