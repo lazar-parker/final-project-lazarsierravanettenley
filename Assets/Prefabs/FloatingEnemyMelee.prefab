@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  damage: 1
-  knockBack: 15
+  damage: 15
+  knockback: 1
   speed: 2
   chaseSpeedIncrease: 5
   distanceTravel: 20
