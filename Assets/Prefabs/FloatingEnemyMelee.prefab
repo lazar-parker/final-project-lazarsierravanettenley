@@ -127,6 +127,7 @@ MonoBehaviour:
   damage: 1
   knockBack: 15
   speed: 2
+  chaseSpeedIncrease: 5
   distanceTravel: 20
   timeIdle: 10
   viewDistance: 6
@@ -136,4 +137,3 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  originalRotationValue: {x: 0, y: 0, z: 0, w: 0}
