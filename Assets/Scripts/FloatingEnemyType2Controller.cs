@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloatingEnemyType2Controller : MonoBehaviour
 {
-    public float health = 1f;
+    public int health = 1;
     public float speed = 1f;
 
     //laser variables
