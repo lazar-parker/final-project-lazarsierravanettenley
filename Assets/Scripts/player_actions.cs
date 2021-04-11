@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class player_actions : MonoBehaviour
 {
-    public float health = 1f;
     public float invulnerableTime = 1f;
     private float invulnerable;
 
@@ -87,24 +86,10 @@ public class player_actions : MonoBehaviour
         }
     }
 
-    public void getDamaged(float damage) {
-        if(Time.time > invulnerable) {
-            health -= damage;
-            if (health <= 0) {
-                death();
-            }
-            invulnerable = Time.time + invulnerableTime;
-        }
-    }
-
     public void getKnockedBacked(float knockBack, Transform enemy) {
         knockBack = knockBack * 100;
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         Vector3 moveDirection = rb.transform.position - enemy.transform.position;
         rb.AddForce(moveDirection.normalized * knockBack);
-    }
-
-    void death() {
-        print("player is dead");
     }
 }
