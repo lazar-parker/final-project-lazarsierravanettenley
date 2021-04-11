@@ -146,6 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 1
-  bulletKnockback: 5
+  bulletKnockback: 10
   speed: 25
-  player: {fileID: 0}

@@ -38,8 +38,8 @@ public class bulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name.Equals("Player")) {
-            ps.DamagePlayer(bulletDamage);
             player.GetComponent<player_actions>().getKnockedBacked(bulletKnockback, transform);
+            ps.DamagePlayer(bulletDamage);
             Destroy(gameObject);
         }
     }

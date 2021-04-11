@@ -41,8 +41,8 @@ public class laserScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name.Equals("Player")) {
             //print("entered");
-            ps.DamagePlayer(laserDamage);
             player.GetComponent<player_actions>().getKnockedBacked(laserKnockback, transform);
+            ps.DamagePlayer(laserDamage);
             Destroy(gameObject);
         }
     }

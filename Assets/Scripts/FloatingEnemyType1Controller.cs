@@ -118,8 +118,8 @@ public class FloatingEnemyType1Controller : MonoBehaviour
         Collider2D[] targetInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewDistance, player);
         Transform playerTarget = targetInViewRadius[0].transform;
 
-        ps.DamagePlayer(damage);
         playerTarget.GetComponent<player_actions>().getKnockedBacked(knockback, transform);
+        ps.DamagePlayer(damage);
     }
 
     void OnCollisionEnter2D(Collision2D col)

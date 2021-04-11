@@ -18,10 +18,12 @@ public class enemy_actions : MonoBehaviour
     private bool movingRight = true;
 
     private player_stats ps;
+    private GameObject player;
 
     private void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -51,6 +53,7 @@ public class enemy_actions : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            player.GetComponent<player_actions>().getKnockedBacked(knockback, transform);
             ps.DamagePlayer(playerDamage);
         }
     }
