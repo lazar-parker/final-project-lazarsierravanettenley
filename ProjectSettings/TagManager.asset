@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - DeathElement
   - ScriptHandler
+  - HealthPickup
+  - SpeedPickup
+  - HudElement
   layers:
   - Default
   - TransparentFX

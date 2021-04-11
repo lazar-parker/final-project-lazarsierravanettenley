@@ -34,4 +34,18 @@ public class player_stats : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    public void HealPlayer(int health)
+    {
+        if(curHealth+health >= maxHealth)
+        {
+            curHealth = maxHealth;
+        }
+        else
+        {
+            curHealth += health;
+        }
+
+        hb.SetHealth(curHealth);
+    }
 }
