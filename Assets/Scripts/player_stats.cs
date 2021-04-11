@@ -7,6 +7,9 @@ public class player_stats : MonoBehaviour
     public int curHealth = 0;
     public int maxHealth = 100;
 
+    public float invulnerableTime = 1f;
+    private float invulnerable;
+
     public HealthBar hb;
 
     private GameObject player;
@@ -18,6 +21,8 @@ public class player_stats : MonoBehaviour
         curHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         pi = new player_inventory();
+
+        invulnerable = Time.time;
     }
 
     // Update is called once per frame
@@ -28,12 +33,16 @@ public class player_stats : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        curHealth -= damage;
-        hb.SetHealth(curHealth);
-        if(curHealth == 0)
-        {
-            Destroy(player);
-            Time.timeScale = 0;
+
+        if (Time.time > invulnerable) {
+            curHealth -= damage;
+            hb.SetHealth(curHealth);
+            if(curHealth == 0)
+            {
+                Destroy(player);
+                Time.timeScale = 0;
+            }
+            invulnerable = Time.time + invulnerableTime;
         }
     }
 
