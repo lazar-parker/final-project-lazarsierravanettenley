@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class turretController : MonoBehaviour
 {
-    public float health = 1f;
+    public int health = 1;
 
     //Bullet Variables
     public float fireRate = 1f;
