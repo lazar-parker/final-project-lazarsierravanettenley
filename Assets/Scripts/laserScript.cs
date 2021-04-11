@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class laserScript : MonoBehaviour
 {
-    public float laserDamage = 1f;
+    public int laserDamage = 1;
     public float laserKnockback = 1f;
 
     public float speed = 10f;
@@ -13,12 +13,16 @@ public class laserScript : MonoBehaviour
 
     private GameObject player;
 
+    private player_stats ps;
+
     Vector2 moveDirection;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
+
         player = GameObject.Find("Player");
         RotateTowards(player.transform.position);
 
@@ -36,7 +40,7 @@ public class laserScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name.Equals("Player")) {
-            player.GetComponent<player_actions>().getDamaged(laserDamage);
+            ps.DamagePlayer(laserDamage);
             player.GetComponent<player_actions>().getKnockedBacked(laserKnockback, transform);
             Destroy(gameObject);
         }

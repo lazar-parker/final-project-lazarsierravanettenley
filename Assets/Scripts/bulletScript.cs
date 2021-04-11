@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bulletScript : MonoBehaviour
 {
-    public float bulletDamage = 1f;
+    public int bulletDamage = 1;
     public float bulletKnockback = 1f;
 
     public float speed = 10f;
@@ -13,12 +13,15 @@ public class bulletScript : MonoBehaviour
 
     private GameObject player;
 
+    private player_stats ps;
+
     Vector2 moveDirection;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
         player = GameObject.Find("Player");
 
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +38,7 @@ public class bulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name.Equals("Player")) {
-            player.GetComponent<player_actions>().getDamaged(bulletDamage);
+            ps.DamagePlayer(bulletDamage);
             player.GetComponent<player_actions>().getKnockedBacked(bulletKnockback, transform);
             Destroy(gameObject);
         }
