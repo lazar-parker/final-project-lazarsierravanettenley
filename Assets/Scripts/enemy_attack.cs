@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class enemy_attack : MonoBehaviour
 {
-    GameObject other;
     int damage;
     // Start is called before the first frame update
     void Start()
@@ -22,9 +21,9 @@ public class enemy_attack : MonoBehaviour
     // make sure to attach the tag "Enemy" to any object that's an enemy
     void OnTriggerEnter2D (Collider2D col)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject); // "kills" enemy object
+            Destroy(col.gameObject); // "kills" enemy object
         }
     }
 }

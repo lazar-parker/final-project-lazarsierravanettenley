@@ -7,8 +7,8 @@ public class enemy_actions : MonoBehaviour
     // followed a tutorial (blackthornprod) online for this, but it's just a 
     // placeholder so we had something playable
 
-    public float damage = 1f; // damage to player
-    public float knockback = 0f; 
+    public int playerDamage = 10; // damage to player
+    public float knockback = 0f;
     public float speed; // can change depending on level
                         // ie - sloth, characters go faster? to make the player seem slower?
 
@@ -19,10 +19,11 @@ public class enemy_actions : MonoBehaviour
 
     private bool movingRight = true;
 
-    // Start is called before the first frame update
-    void Start()
+    public player_stats ps;
+
+    private void Start()
     {
-        player = GameObject.Find("Player");
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
     }
 
     void Update()
@@ -52,9 +53,7 @@ public class enemy_actions : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            // Debug.Log("Player destroyed");
-            player.GetComponent<player_actions>().getDamaged(damage);
-            player.GetComponent<player_actions>().getKnockedBacked(knockback, transform);
+            ps.DamagePlayer(playerDamage);
         }
     }
 }
