@@ -6,7 +6,7 @@ public class FloatingEnemyType1Controller : MonoBehaviour
 {
     public int health = 1;
     public int damage = 1;
-    public float knockBack = 1f;
+    public float knockback = 1f;
     public float speed = 1f;
     public float chaseSpeedIncrease = 1f;
 
@@ -119,7 +119,7 @@ public class FloatingEnemyType1Controller : MonoBehaviour
         Transform playerTarget = targetInViewRadius[0].transform;
 
         ps.DamagePlayer(damage);
-        playerTarget.GetComponent<player_actions>().getKnockedBacked(knockBack, transform);
+        playerTarget.GetComponent<player_actions>().getKnockedBacked(knockback, transform);
     }
 
     void OnCollisionEnter2D(Collision2D col)

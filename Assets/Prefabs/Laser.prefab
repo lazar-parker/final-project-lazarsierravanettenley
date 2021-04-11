@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserDamage: 1
-  laserKnockback: 1
+  laserKnockback: 10
   speed: 12
 --- !u!61 &-4415099689684073511
 BoxCollider2D:
