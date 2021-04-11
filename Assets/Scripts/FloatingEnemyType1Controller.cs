@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FloatingEnemyType1Controller : MonoBehaviour
 {
-    public float health = 1f;
-    public float damage = 1f;
+    public int health = 1;
+    public int damage = 1;
     public float knockBack = 1f;
     public float speed = 1f;
     public float chaseSpeedIncrease = 1f;
@@ -24,12 +24,16 @@ public class FloatingEnemyType1Controller : MonoBehaviour
     public LayerMask player;
     public LayerMask obstacleMask;
 
+    private player_stats ps;
+
     //saves the original rotation of the enemy
     private Quaternion originalRotationValue;
 
     // Start is called before the first frame update
     void Start()
     {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
+
         time = distanceTravel * 100;
         timeStopped = timeIdle * 100;
         
@@ -114,7 +118,7 @@ public class FloatingEnemyType1Controller : MonoBehaviour
         Collider2D[] targetInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewDistance, player);
         Transform playerTarget = targetInViewRadius[0].transform;
 
-        playerTarget.GetComponent<player_actions>().getDamaged(damage);
+        ps.DamagePlayer(damage);
         playerTarget.GetComponent<player_actions>().getKnockedBacked(knockBack, transform);
     }
 
