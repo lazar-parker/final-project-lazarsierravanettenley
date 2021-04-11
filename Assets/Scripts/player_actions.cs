@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class player_actions : MonoBehaviour
 {
-    public float invulnerableTime = 1f;
-    private float invulnerable;
-
     public float fMult = 0.7f;
     public float maxVelocity = 10f;
     public float jumpPower = 10f;
@@ -25,7 +22,7 @@ public class player_actions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        invulnerable = Time.time;
+        
     }
 
     // Update is called once per frame
