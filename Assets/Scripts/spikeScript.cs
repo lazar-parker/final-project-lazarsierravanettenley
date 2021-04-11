@@ -7,12 +7,12 @@ public class spikeScript : MonoBehaviour
 
     public float damage  = 1f;
 
-    private GameObject player;
+    private player_stats ps;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
         
     }
 
@@ -27,7 +27,7 @@ public class spikeScript : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            player.GetComponent<player_actions>().getDamaged(damage);
+            ps.DamagePlayer(playerDamage);
         }
     }
 }

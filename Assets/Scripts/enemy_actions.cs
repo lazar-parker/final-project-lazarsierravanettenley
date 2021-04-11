@@ -15,11 +15,9 @@ public class enemy_actions : MonoBehaviour
     // public GameObject other;
     public Transform groundDetection;
 
-    public GameObject player;
-
     private bool movingRight = true;
 
-    public player_stats ps;
+    private player_stats ps;
 
     private void Start()
     {
