@@ -8,6 +8,7 @@ public class FloatingEnemyType1Controller : MonoBehaviour
     public float damage = 1f;
     public float knockBack = 1f;
     public float speed = 1f;
+    public float chaseSpeedIncrease = 1f;
 
     //these are for the idle state
     public int distanceTravel = 0;
@@ -135,7 +136,7 @@ public class FloatingEnemyType1Controller : MonoBehaviour
     }
 
     private void MoveToward(Vector2 target) {
-        transform.position = Vector2.MoveTowards(transform.position, target, (speed + 2f) * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target, (speed + chaseSpeedIncrease) * Time.deltaTime);
     }
 
     private void SearchPlayer() {
