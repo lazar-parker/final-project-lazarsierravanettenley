@@ -7,7 +7,7 @@ public class enemy_actions : MonoBehaviour
     // followed a tutorial (blackthornprod) online for this, but it's just a 
     // placeholder so we had something playable
 
-    public int playerDamage; // damage to player
+    public int playerDamage = 10; // damage to player
     public float speed; // can change depending on level
                         // ie - sloth, characters go faster? to make the player seem slower?
 
@@ -15,6 +15,13 @@ public class enemy_actions : MonoBehaviour
     public Transform groundDetection;
 
     private bool movingRight = true;
+
+    public player_stats ps;
+
+    private void Start()
+    {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<player_stats>();
+    }
 
 
     void Update()
@@ -44,9 +51,7 @@ public class enemy_actions : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            // Debug.Log("Player destroyed");
-            Destroy(col.gameObject);
-            Time.timeScale = 0;
+            ps.DamagePlayer(playerDamage);
         }
     }
 }

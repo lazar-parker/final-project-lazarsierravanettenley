@@ -36,7 +36,7 @@ public class player_actions : MonoBehaviour
 
         if(Time.timeScale == 1)
         {
-            if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rb.velocity.y) < 0.001f)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(rb.velocity.y) < 0.001f)
             {
                 rb.AddForce(new Vector2(0f, jumpPower), ForceMode2D.Impulse);
             }
@@ -79,6 +79,10 @@ public class player_actions : MonoBehaviour
             {
                 enemy.transform.position = new Vector3(0, -100, 0);
                 Destroy(enemy);
+            }
+            else if(enemy.CompareTag("Enemy"))
+            {
+                Destroy(enemy.gameObject);
             }
         }
     }
