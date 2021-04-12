@@ -3,5 +3,5 @@
 Group Members:
 - Parker Lazar
 - Luis Sierra
-- Kris VanEtten - git test
+- Kris VanEtten
 - Matt Ley

@@ -1,0 +1,14 @@
+Intro: 
+
+It was supposed to be simple, safe. Test the AI, record if it passed. How well could the machine blend in with humankind? Would you be able to pick it out of a crowd, when humanity was the deciding factor? 
+
+...
+
+Will it be able to pick you out?
+
+Level 1:
+
+You must fight your way out (F). But be warned, avoid the diamonds*. Contact with them will drain your life force. 
+
+!!! NOTES !!!
+** We can change this if we change the enemy appearance. **
