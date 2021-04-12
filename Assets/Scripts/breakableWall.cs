@@ -31,6 +31,7 @@ public class breakableWall : MonoBehaviour
        */
     }
 
+    /*
     private void OnCollisionEnter2D(Collider2D collision) {
         if(collision.CompareTag("Weapon")) {
             health--;
@@ -40,6 +41,7 @@ public class breakableWall : MonoBehaviour
             }
         }
     }
+    */
 
     public void ExplodeObject() {
         GameObject destructable = (GameObject)Instantiate(destructableRef);

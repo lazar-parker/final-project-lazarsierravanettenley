@@ -49,7 +49,7 @@ public class enemy_actions : MonoBehaviour
 
     //damages and knockbacks player
     // needs rigidbody 2D and boxcollider 2D, make sure isTriggered is NOT selected
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
         {
