@@ -4138,7 +4138,7 @@ RectTransform:
   - {fileID: 1706206091}
   - {fileID: 1663707824}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13014,7 +13014,7 @@ PrefabInstance:
     - target: {fileID: 8093530785461275511, guid: 12086c536dee389449a34a9e5ce4b350,
         type: 3}
       propertyPath: jumpPower
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8093530785461275511, guid: 12086c536dee389449a34a9e5ce4b350,
         type: 3}
