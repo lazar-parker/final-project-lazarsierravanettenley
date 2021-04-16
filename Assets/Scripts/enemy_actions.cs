@@ -33,11 +33,12 @@ public class enemy_actions : MonoBehaviour
     void Update()
     {
 
-        if(!colorChange) {
+        if(colorChange) {
             if(colorTime > 0) {
                 colorTime--;
             }
             else {
+                colorChange = false;
                 gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             }
         }
@@ -72,10 +73,11 @@ public class enemy_actions : MonoBehaviour
         }
     }
 
-    public void DamageEnemy(int damage) {
+    public void DamageEnemy(int playerDamage) {
         gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        colorChange = true;
         colorTime = 50;
-        health = health - damage;
+        health = health - playerDamage;
         if (health <= 0) {
             Destroy(gameObject);
         }

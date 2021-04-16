@@ -80,6 +80,15 @@ public class player_actions : MonoBehaviour
             {
                 enemy.GetComponent<enemy_actions>().DamageEnemy(damage);
             }
+            else if(enemy.CompareTag("FlyingEnemyMelee")) {
+                enemy.GetComponent<FloatingEnemyType1Controller>().DamageEnemy(damage);
+            }
+            else if(enemy.CompareTag("FlyingEnemyRanged")) {
+                enemy.GetComponent<FloatingEnemyType2Controller>().DamageEnemy(damage);
+            }
+            else if(enemy.CompareTag("Turret")) {
+                enemy.GetComponent<turretController>().DamageEnemy(damage);
+            }
         }
     }
 

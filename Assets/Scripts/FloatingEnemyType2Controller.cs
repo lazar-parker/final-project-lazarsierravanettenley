@@ -31,9 +31,15 @@ public class FloatingEnemyType2Controller : MonoBehaviour
     //saves the original rotation of the enemy
     private Quaternion originalRotationValue;
 
+    private bool colorChange = false;
+    private int colorTime = 50;
+    private Color originalColor;
+
     // Start is called before the first frame update
     void Start()
     {
+        originalColor = gameObject.GetComponent<Renderer>().material.GetColor("_Color");
+
         time = distanceTravel * 100;
         timeStopped = timeIdle * 100;
 
@@ -43,11 +49,31 @@ public class FloatingEnemyType2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(colorChange) {
+            if(colorTime > 0) {
+                colorTime--;
+            }
+            else {
+                colorChange = false;
+                gameObject.GetComponent<Renderer>().material.SetColor("_Color", originalColor);
+            }
+        }
+
         if(FindPlayer()) {
             AttackPlayer();
         }
         else {
             Idle();
+        }
+    }
+
+    public void DamageEnemy(int playerDamage) {
+        gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        colorChange = true;
+        colorTime = 50;
+        health = health - playerDamage;
+        if (health <= 0) {
+            Destroy(gameObject);
         }
     }
 
