@@ -14,6 +14,7 @@ public class player_actions : MonoBehaviour
     //public Animator anim;
 
     public Transform playerAttack;
+    public int damage = 5;
     public float attackRange = 0.5f;
 
     public float attackDelay = 0.5f;
@@ -56,7 +57,7 @@ public class player_actions : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Attack();
-                attackTime = Time.time + 1f / attackDelay;
+                attackTime = Time.time + attackDelay;
             }
         }
     }
@@ -73,12 +74,11 @@ public class player_actions : MonoBehaviour
         {
             if(enemy.CompareTag("BreakableWall"))
             {
-                enemy.transform.position = new Vector3(0, -100, 0);
-                Destroy(enemy);
+                enemy.GetComponent<breakableWall>().ExplodeObject();
             }
             else if(enemy.CompareTag("Enemy"))
             {
-                Destroy(enemy.gameObject);
+                enemy.GetComponent<enemy_actions>().DamageEnemy(damage);
             }
         }
     }
