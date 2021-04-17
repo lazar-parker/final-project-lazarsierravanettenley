@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class swordSlashScript : MonoBehaviour
 {
-    private bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +17,11 @@ public class swordSlashScript : MonoBehaviour
         
     }
 
-    public void toggleActive() {
-        if(isActive) {
-            isActive = false;
-        }
-        else {
-            isActive = true;
-        }
+    public void activateSwordSlash() {
+        gameObject.SetActive(true);
+    }
+
+    public void deactivateSwordSlash() {
+        gameObject.SetActive(false);
     }
 }

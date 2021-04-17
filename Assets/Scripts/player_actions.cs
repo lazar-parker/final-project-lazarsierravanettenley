@@ -20,6 +20,11 @@ public class player_actions : MonoBehaviour
     public float attackDelay = 0.5f;
     float attackTime = 0f;
 
+    //sword slash object
+    public GameObject swordSlash;
+    private bool swordSlashActivated = false;
+    private float swordSlashTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +45,17 @@ public class player_actions : MonoBehaviour
             if (Input.GetKey(KeyCode.A) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
                 playerAttack.localPosition = new Vector3(-1, 0, 0);
+                swordSlash.transform.localPosition = new Vector3(-1.58f, 0, 0);
+                swordSlash.transform.localScale = new Vector3(-0.1782713f, 0.1782713f, 0.1782713f);
                 rb.AddForce(fMult * Vector3.left);
             }
             if (Input.GetKey(KeyCode.D) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
                 playerAttack.localPosition = new Vector3(1, 0, 0);
+                swordSlash.transform.localPosition = new Vector3(1.58f, 0, 0);
+                swordSlash.transform.localScale = new Vector3(0.1782713f, 0.1782713f, 0.1782713f);
                 rb.AddForce(fMult * Vector3.right);
             }
-            
             
         }
 
@@ -60,6 +68,13 @@ public class player_actions : MonoBehaviour
                 attackTime = Time.time + attackDelay;
             }
         }
+
+        if(swordSlashActivated) {
+            if(Time.time > swordSlashTime) {
+                swordSlash.GetComponent<swordSlashScript>().deactivateSwordSlash();
+                swordSlashActivated = false;
+            }
+        }
     }
 
     void Attack()
@@ -67,6 +82,11 @@ public class player_actions : MonoBehaviour
         //Setting the animator trigger here will allow us to add
         //  attack animations (once we get to that point)
         //anim.SetTrigger("Attack");
+
+        //activates the sword slash image.
+        swordSlash.GetComponent<swordSlashScript>().activateSwordSlash();
+        swordSlashTime = Time.time + attackDelay - .1f;
+        swordSlashActivated = true;
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(playerAttack.position, attackRange);
 
