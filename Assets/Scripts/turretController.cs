@@ -9,8 +9,8 @@ public class turretController : MonoBehaviour
     //Bullet Variables
     public float fireRate = 1f;
     public float coolDown = 1f;
-    public float bulletSpread = 0f;
-    private bool isFiring = true;
+    //public float bulletSpread = 0f;
+    //private bool isFiring = true;
     [SerializeField]
     public UnityEngine.Object projectile;
     private float nextFire;
