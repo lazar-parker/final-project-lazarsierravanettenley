@@ -12,6 +12,9 @@ TagManager:
   - HealthPickup
   - SpeedPickup
   - HudElement
+  - Turret
+  - FlyingEnemyMelee
+  - FlyingEnemyRanged
   layers:
   - Default
   - TransparentFX
