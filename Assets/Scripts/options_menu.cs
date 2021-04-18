@@ -21,13 +21,22 @@ public class options_menu : MonoBehaviour
         rd.ClearOptions();
 
         List<string> rl = new List<string>();
+
+        int cr = 0;
         for(int i = 0; i < resolutions.Length; i++)
         {
             string o = resolutions[i].width + " x " + resolutions[i].height;
             rl.Add(o);
+
+            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                cr = i;
+            }
         }
 
         rd.AddOptions(rl);
+        rd.value = cr;
+        rd.RefreshShownValue();
     }
 
     // Update is called once per frame
@@ -56,5 +65,11 @@ public class options_menu : MonoBehaviour
         {
             pm.showPaused();
         }
+    }
+
+    public void SetResolution(int i)
+    {
+        Resolution r = resolutions[i];
+        Screen.SetResolution(r.width, r.height, Screen.fullScreen);
     }
 }
