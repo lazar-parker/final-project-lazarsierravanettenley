@@ -34,6 +34,11 @@ public class options_menu : MonoBehaviour
             }
         }
 
+        if(resolutions.Length == 0)
+        {
+            rl.Add(Screen.width + " x " + Screen.height);
+        }
+
         rd.AddOptions(rl);
         rd.value = cr;
         rd.RefreshShownValue();
