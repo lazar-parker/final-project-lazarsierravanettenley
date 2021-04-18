@@ -47,7 +47,7 @@ public class goal : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("_Scene_Menu");
         }
         /*
         else if(i == 2)
