@@ -67,6 +67,7 @@ public class FloatingEnemyType2Controller : MonoBehaviour
         }
     }
 
+    //damages the floating enemy. If the health reaches 0 then it gets destroyed.
     public void DamageEnemy(int playerDamage) {
         gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         colorChange = true;

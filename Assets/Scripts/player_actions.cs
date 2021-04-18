@@ -25,10 +25,16 @@ public class player_actions : MonoBehaviour
     private bool swordSlashActivated = false;
     private float swordSlashTime;
 
+    //projectile for ranged attack
+    public UnityEngine.Object projectile;
+    public float fireRate = 1;
+    private float fireTime;
+    private bool isFacingRight = true; //for projectile
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        fireTime = Time.time;
     }
 
     // Update is called once per frame
@@ -48,6 +54,8 @@ public class player_actions : MonoBehaviour
                 swordSlash.transform.localPosition = new Vector3(-1.58f, 0, 0);
                 swordSlash.transform.localScale = new Vector3(-0.1782713f, 0.1782713f, 0.1782713f);
                 rb.AddForce(fMult * Vector3.left);
+
+                isFacingRight = false;
             }
             if (Input.GetKey(KeyCode.D) && Mathf.Abs(rb.velocity.x) <= maxVelocity)
             {
@@ -55,6 +63,8 @@ public class player_actions : MonoBehaviour
                 swordSlash.transform.localPosition = new Vector3(1.58f, 0, 0);
                 swordSlash.transform.localScale = new Vector3(0.1782713f, 0.1782713f, 0.1782713f);
                 rb.AddForce(fMult * Vector3.right);
+
+                isFacingRight = true;
             }
             
         }
@@ -62,17 +72,25 @@ public class player_actions : MonoBehaviour
         //Setting up attack functionality
         if(Time.time >= attackTime)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.J))
             {
                 Attack();
                 attackTime = Time.time + attackDelay;
             }
+            
         }
 
         if(swordSlashActivated) {
             if(Time.time > swordSlashTime) {
                 swordSlash.GetComponent<swordSlashScript>().deactivateSwordSlash();
                 swordSlashActivated = false;
+            }
+        }
+
+        if(Time.time > fireTime) {
+            if (Input.GetKeyDown(KeyCode.K)) {
+                RangedAttack();
+                fireTime = Time.time + fireRate;
             }
         }
     }
@@ -85,7 +103,7 @@ public class player_actions : MonoBehaviour
 
         //activates the sword slash image.
         swordSlash.GetComponent<swordSlashScript>().activateSwordSlash();
-        swordSlashTime = Time.time + attackDelay - .1f;
+        swordSlashTime = Time.time + 0.1f;
         swordSlashActivated = true;
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(playerAttack.position, attackRange);
@@ -112,11 +130,19 @@ public class player_actions : MonoBehaviour
         }
     }
 
+    void RangedAttack() {
+        Instantiate (projectile, transform.position, Quaternion.identity);
+    }
+
     public void getKnockedBacked(float knockBack, Transform enemy) {
         //print("entered");
         knockBack = knockBack * 100;
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         Vector3 moveDirection = rb.transform.position - enemy.transform.position;
         rb.AddForce(moveDirection.normalized * knockBack);
+    }
+
+    public bool getIsFacingRight() {
+        return isFacingRight;
     }
 }
