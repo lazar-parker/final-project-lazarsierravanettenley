@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class pause_menu : MonoBehaviour
 {
     GameObject[] pauseMenu;
-    GameObject[] enemyList;
+    public options_menu om;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class pause_menu : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu = GameObject.FindGameObjectsWithTag("PauseElement");
         hidePaused();
-        enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        om = GameObject.FindGameObjectWithTag("OptionsMenu").GetComponentInChildren<options_menu>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class pause_menu : MonoBehaviour
             {
                 Time.timeScale = 1;
                 hidePaused();
+                om.HideOptions();
             }
         }
     }
@@ -83,10 +84,12 @@ public class pause_menu : MonoBehaviour
         Save s = new Save();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject goal = GameObject.FindGameObjectWithTag("Goal");
 
         s.playerX = player.transform.position.x;
         s.playerY = player.transform.position.y;
         s.playerHealth = player.GetComponent<player_stats>().curHealth;
+        s.level = goal.GetComponent<goal>().SaveLevel();
 
         return s;
     }
@@ -101,6 +104,9 @@ public class pause_menu : MonoBehaviour
             file.Close();
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject goal = GameObject.FindGameObjectWithTag("Goal");
+
+            goal.GetComponent<goal>().LoadLevel(save.level);
 
             player.transform.position = new Vector3(save.playerX, save.playerY, 0);
             player.GetComponent<player_stats>().SetHealth(save.playerHealth);

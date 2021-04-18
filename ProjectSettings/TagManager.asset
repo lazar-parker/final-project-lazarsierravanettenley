@@ -15,6 +15,10 @@ TagManager:
   - Turret
   - FlyingEnemyMelee
   - FlyingEnemyRanged
+  - Goal
+  - OptionElement
+  - PauseMenu
+  - OptionsMenu
   layers:
   - Default
   - TransparentFX

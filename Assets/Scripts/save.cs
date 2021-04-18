@@ -9,4 +9,5 @@ public class Save
     public float playerX;
     public float playerY;
     public int playerHealth;
+    public int level;
 }
