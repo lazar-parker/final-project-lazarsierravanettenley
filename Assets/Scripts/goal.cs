@@ -12,8 +12,11 @@ public class goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level = 1;
-        score.text = "Current Level: " + level.ToString();
+        if(SceneManager.GetActiveScene().name == "_Scene_Tutorial")
+        {
+            level = 1;
+            score.text = "Current Level: " + level.ToString();
+        }
     }
 
     // Update is called once per frame
@@ -43,17 +46,19 @@ public class goal : MonoBehaviour
     {
         if(i == 1)
         {
+            SceneManager.LoadScene("_Scene_Tutorial");
+        }
+        else if(i == 2)
+        {
+            SceneManager.LoadScene("Luis_Level");
+        }
+        else if(i == 3)
+        {
             SceneManager.LoadScene("Level_Test");
         }
         else
         {
             SceneManager.LoadScene("_Scene_Menu");
         }
-        /*
-        else if(i == 2)
-        {
-            SceneManager.LoadScene("Enemy_Test");
-        }
-        */
     }
 }

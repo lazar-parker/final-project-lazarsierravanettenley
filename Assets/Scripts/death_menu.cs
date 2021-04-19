@@ -46,6 +46,7 @@ public class death_menu : MonoBehaviour
 
     public void OnDeathReload()
     {
-        SceneManager.LoadScene("Level_Test");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }

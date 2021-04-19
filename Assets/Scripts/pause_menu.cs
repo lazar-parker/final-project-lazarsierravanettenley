@@ -56,8 +56,8 @@ public class pause_menu : MonoBehaviour
 
     public void Reload()
     {
-        //Scene scene = SceneManager.GetActiveScene();S
-        SceneManager.LoadScene("Level_Test");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     //Used for the resume button, same logic as within Update

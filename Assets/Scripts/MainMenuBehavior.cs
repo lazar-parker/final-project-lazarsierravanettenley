@@ -8,7 +8,7 @@ public class MainMenuBehavior : MonoBehaviour
     public void ChangeScene()
     {
         Debug.Log("The button was clicked!");
-        SceneManager.LoadScene("Level_Test");
+        SceneManager.LoadScene("Scene_Tutorial");
     }
 
 
