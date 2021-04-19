@@ -28,7 +28,14 @@ public class goal : MonoBehaviour
         {
             Debug.Log("hit it");
             level++;
-            SceneManager.LoadScene(level);
+            if(level > SceneManager.sceneCount)
+            {
+                SceneManager.LoadScene("_Scene_Menu");
+            }
+            else
+            {
+                SceneManager.LoadScene(level);
+            }
         }
     }
 }
