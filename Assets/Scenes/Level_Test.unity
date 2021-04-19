@@ -942,11 +942,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98426526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 2.3999999, y: 2.3999999, z: 1}
+  m_LocalPosition: {x: -20.7403, y: 27.9095, z: 0}
+  m_LocalScale: {x: 18.815407, y: 18.540236, z: 1}
   m_Children: []
-  m_Father: {fileID: 392905360}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &98426528
 SpriteRenderer:
@@ -989,7 +989,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 38708af40dd9bd847b4883c7c7d50f10, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.14901961}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3355,8 +3355,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 98426527}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8372,28 +8371,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3407163610079242553, guid: 78c13b93c42c72e4c916ade8c471f77e,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1674552069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c13b93c42c72e4c916ade8c471f77e, type: 3}
---- !u!1 &1073959376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2910187506677545409, guid: 78c13b93c42c72e4c916ade8c471f77e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1073959375}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1073959377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073959376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3de829bc994ed40b91c53fcb67fb62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 1674552069}
-  level: 0
 --- !u!4 &1080401139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3894819377764647951, guid: 241bab7733d740243b287af247c7331f,
