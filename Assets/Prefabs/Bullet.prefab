@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 5
-  bulletKnockback: 10
-  speed: 25
+  bulletKnockback: 3
+  speed: 20

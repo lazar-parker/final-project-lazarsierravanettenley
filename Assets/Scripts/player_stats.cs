@@ -37,7 +37,7 @@ public class player_stats : MonoBehaviour
         if (Time.time > invulnerable) {
             curHealth -= damage;
             hb.SetHealth(curHealth);
-            if(curHealth == 0)
+            if(curHealth <= 0)
             {
                 Destroy(player);
                 Time.timeScale = 0;

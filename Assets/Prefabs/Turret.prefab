@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5442679258703522308}
   m_Layer: 6
   m_Name: Turret
-  m_TagString: Enemy
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,10 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a937bfd12f1ec40b681c43a21b49a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 20
   fireRate: 0.5
   coolDown: 1
-  bulletSpread: 0
   projectile: {fileID: 7039024628270152989, guid: 09e3d0cc0d7aa4f4b97d5e5d2cf3659d,
     type: 3}
   viewDistance: 10

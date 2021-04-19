@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3940960188628897952}
   m_Layer: 6
   m_Name: FloatingEnemyMelee
-  m_TagString: Enemy
+  m_TagString: FlyingEnemyMelee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5498f534ee4634eb658dba186b2a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 15
   damage: 15
   knockback: 1
   speed: 2
