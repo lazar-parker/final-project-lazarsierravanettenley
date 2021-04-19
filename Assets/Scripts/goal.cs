@@ -7,16 +7,13 @@ using UnityEngine.UI;
 public class goal : MonoBehaviour
 {
     public Text score;
-    private int level;
+    public int level;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "_Scene_Tutorial")
-        {
-            level = 1;
-            score.text = "Current Level: " + level.ToString();
-        }
+        level = SceneManager.GetActiveScene().buildIndex;
+        score.text = "Current Level: " + level.ToString();
     }
 
     // Update is called once per frame
@@ -31,34 +28,7 @@ public class goal : MonoBehaviour
         {
             Debug.Log("hit it");
             level++;
-            Debug.Log(level.ToString());
-            score.text = "Current Level: " + level.ToString();
-            LoadLevel(level);
-        }
-    }
-
-    public int SaveLevel()
-    {
-        return level;
-    }
-
-    public void LoadLevel(int i)
-    {
-        if(i == 1)
-        {
-            SceneManager.LoadScene("_Scene_Tutorial");
-        }
-        else if(i == 2)
-        {
-            SceneManager.LoadScene("Luis_Level");
-        }
-        else if(i == 3)
-        {
-            SceneManager.LoadScene("Level_Test");
-        }
-        else
-        {
-            SceneManager.LoadScene("_Scene_Menu");
+            SceneManager.LoadScene(level);
         }
     }
 }

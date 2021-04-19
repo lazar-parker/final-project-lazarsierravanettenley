@@ -89,8 +89,7 @@ public class pause_menu : MonoBehaviour
         s.playerX = player.transform.position.x;
         s.playerY = player.transform.position.y;
         s.playerHealth = player.GetComponent<player_stats>().curHealth;
-        s.level = goal.GetComponent<goal>().SaveLevel();
-
+        s.level = SceneManager.GetActiveScene().buildIndex;
         return s;
     }
 
@@ -104,9 +103,8 @@ public class pause_menu : MonoBehaviour
             file.Close();
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            GameObject goal = GameObject.FindGameObjectWithTag("Goal");
 
-            goal.GetComponent<goal>().LoadLevel(save.level);
+            SceneManager.LoadScene(save.level);
 
             player.transform.position = new Vector3(save.playerX, save.playerY, 0);
             player.GetComponent<player_stats>().SetHealth(save.playerHealth);
